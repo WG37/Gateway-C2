@@ -30,7 +30,7 @@ namespace TeamServer.Infrastructure.Controllers.AgentControllers
 
             var results = await _agentCore.GetTaskResults();
             if (results == null || !results.Any())
-                return Ok(Array.Empty<AgentTaskResult>);
+                return Ok(Array.Empty<AgentTaskResult>());
 
             return Ok(results);
         }
