@@ -8,7 +8,6 @@
 
         public Agent(Guid uniqueId, AgentMetadata metadata)
         {
-            Id = Guid.NewGuid();
             UniqueId = uniqueId;
             Metadata = metadata;
         }
