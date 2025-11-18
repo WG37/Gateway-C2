@@ -9,15 +9,18 @@ namespace TeamServer.Application.Services.ListenerServices.HttpListenerService.H
 {
     public class HttpCore : IHttpCore
     {
+        private readonly IConfiguration _config;
+        private readonly IAgentCore _agentCore;
+
         private CancellationTokenSource _tokenSource;
         
         private WebApplication _host;
         private Task _runTask;
-        private readonly IConfiguration _config;
 
-        public HttpCore(IConfiguration config)
+        public HttpCore(IConfiguration config, AgentCore agentCore)
         {
             _config = config;
+            _agentCore = agentCore;
         }
 
         public async Task StartHttpListenerAsync(int bindPort)
@@ -30,6 +33,7 @@ namespace TeamServer.Application.Services.ListenerServices.HttpListenerService.H
             var builder = WebApplication.CreateBuilder();
             // shares connection string/ other configs
             builder.Configuration.AddConfiguration(_config);
+
             builder.WebHost.UseUrls($"http://0.0.0.0:{bindPort}");
 
             builder.Services.AddControllers()
@@ -38,8 +42,9 @@ namespace TeamServer.Application.Services.ListenerServices.HttpListenerService.H
             builder.Services.AddDbContext<AppDbContext>(o =>
                 o.UseSqlServer(builder.Configuration.GetConnectionString("TeamServerDb")));
 
+            builder.Services.AddSingleton<IAgentCore>(_agentCore);
+
             builder.Services.AddScoped<IAgentCRUD, AgentCRUD>();
-            builder.Services.AddScoped<IAgentCore, AgentCore>();
 
             _host = builder.Build();
 

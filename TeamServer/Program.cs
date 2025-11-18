@@ -18,6 +18,8 @@ namespace TeamServer
                 o.ListenAnyIP(5225);              
             });
 
+            var sharedAgentCore = new AgentCore();
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -28,11 +30,13 @@ namespace TeamServer
             builder.Services.AddDbContext<AppDbContext>(o => 
                     o.UseSqlServer(builder.Configuration.GetConnectionString("TeamServerDb")));
 
-            builder.Services.AddSingleton<IHttpCore, HttpCore>();
-            builder.Services.AddScoped<IHttpCRUD, HttpCRUD>();
+            builder.Services.AddSingleton<IAgentCore>(sharedAgentCore);
 
+            builder.Services.AddSingleton<IHttpCore>(sp => 
+                new HttpCore(builder.Configuration, sharedAgentCore));
+
+            builder.Services.AddScoped<IHttpCRUD, HttpCRUD>();
             builder.Services.AddScoped<IAgentCRUD, AgentCRUD>();
-            builder.Services.AddScoped<IAgentCore, AgentCore>();
 
             var app = builder.Build();
 
