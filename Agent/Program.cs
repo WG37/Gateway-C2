@@ -2,11 +2,13 @@
 using AgentClient.Domain.Models.Agents;
 using System.Diagnostics;
 using System.Security.Principal;
+using System.ComponentModel.DataAnnotations;
 
 namespace AgentClient
 {
     public class Program
     {
+        // TODO: single agent field instance
         private static Agent _agent;
         private static AgentMetadata _metadata;
         private static CommModule _commModule;
@@ -31,8 +33,22 @@ namespace AgentClient
                 if (_commModule.ReceiveData(out var tasks))
                 {
                     // action
+                    HandleTasks(tasks);
                 }
             }
+        }
+
+        private static void HandleTasks(IEnumerable<AgentTask> tasks)
+        {
+            foreach (var task in tasks)
+            {
+                HandleTask(task);
+            }
+        }
+
+        private static void HandleTask(AgentTask task)
+        {
+
         }
 
         public Task Stop()
