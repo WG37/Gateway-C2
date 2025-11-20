@@ -31,6 +31,7 @@ namespace TeamServer.Application.Services.ListenerServices.HttpListenerService.H
             _tokenSource = new CancellationTokenSource();
 
             var builder = WebApplication.CreateBuilder();
+
             // shares connection string/ other configs
             builder.Configuration.AddConfiguration(_config);
 
