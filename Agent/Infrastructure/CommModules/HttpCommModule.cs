@@ -44,7 +44,7 @@ namespace AgentClient.Infrastructure.CommModules
             {
                 try
                 {
-                    if (!Inbound.IsEmpty)
+                    if (!Outbound.IsEmpty)
                     {
                         await PostData();
                     }
