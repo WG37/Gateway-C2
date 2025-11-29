@@ -17,7 +17,7 @@ namespace AgentClient
         private static CancellationTokenSource _tokenSource;
 
         private static List<AgentCommand> _commands = new();
-
+        
         static void Main(string[] args)
         {
             Thread.Sleep(15000);
