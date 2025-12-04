@@ -10,7 +10,7 @@ namespace AgentClient.Application.Commands
         {
             var args = string.Join(" ", task.Arguments);
 
-            return Services.ExecutionService.ExecuteCommand(@"C:\Windows\System32\cmd.exe", $"/c {args}");
+            return Services.ExecuteCommandService.ExecuteCommand(@"C:\Windows\System32\cmd.exe", $"/c {args}");
         }
     }
 }

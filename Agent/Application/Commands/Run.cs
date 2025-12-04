@@ -11,7 +11,7 @@ namespace AgentClient.Application.Commands
             var fileName = task.Arguments[0];
             var args = string.Join(" ", task.Arguments.Skip(1));
 
-            return Services.ExecutionService.ExecuteCommand(fileName, args);
+            return Services.ExecuteCommandService.ExecuteCommand(fileName, args);
         }
     }
 }
