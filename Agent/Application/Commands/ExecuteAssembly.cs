@@ -1,4 +1,5 @@
-﻿using AgentClient.Domain.Models.Agents;
+﻿using AgentClient.Application.Services;
+using AgentClient.Domain.Models.Agents;
 
 namespace AgentClient.Application.Commands
 {
@@ -8,7 +9,8 @@ namespace AgentClient.Application.Commands
 
         public override string Execute(AgentTask task)
         {
-            throw new NotImplementedException();
+            var result = ExecuteAssemblyService.ExecuteAssembly(task.FileBytes, task.Arguments);
+            return result;
         }
     }
 }
