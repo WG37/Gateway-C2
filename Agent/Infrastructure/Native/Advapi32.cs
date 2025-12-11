@@ -35,5 +35,13 @@ namespace AgentClient.Infrastructure.Native
             LogonUserProvider dwLogonProvider,
             out IntPtr phToken
             );
+
+        [DllImport("Advapi32.dll", SetLastError = true)]
+        public static extern bool ImpersonateLoggedOnUser(
+            IntPtr hToken
+            );
+
+        [DllImport("Advapi32.dll", SetLastError = true)]
+        public static extern bool RevertToSelf();
     }
 }
