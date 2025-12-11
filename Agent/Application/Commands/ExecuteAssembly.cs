@@ -10,6 +10,7 @@ namespace AgentClient.Application.Commands
         public override string Execute(AgentTask task)
         {
             var result = ExecuteAssemblyService.ExecuteAssembly(task.FileBytes, task.Arguments);
+
             return result;
         }
     }
