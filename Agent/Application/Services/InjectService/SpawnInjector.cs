@@ -1,6 +1,5 @@
 ﻿using AgentClient.Infrastructure.Native;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 
 namespace AgentClient.Application.Services.InjectService
@@ -83,10 +82,6 @@ namespace AgentClient.Application.Services.InjectService
 
                 return true;
 
-            }
-            catch (Win32Exception)
-            {
-                throw;
             }
             finally
             {

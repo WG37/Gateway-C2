@@ -34,7 +34,7 @@ namespace AgentClient.Application.Commands
             return results.ToString();
         }
 
-        //if process does not have permission to file/folder print: "-"
+        // if process does not have permission to file/folder print: "-"
         private string GetProcessPath(Process process)
         {
             try
