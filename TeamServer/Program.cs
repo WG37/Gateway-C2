@@ -3,6 +3,7 @@ using TeamServer.Application.Services.AgentServices.AgentCore;
 using TeamServer.Application.Services.AgentServices.AgentCRUD;
 using TeamServer.Application.Services.ListenerServices.HttpListenerService.HttpCore;
 using TeamServer.Application.Services.ListenerServices.HttpListenerService.HttpCRUD;
+using TeamServer.Application.Startup;
 using TeamServer.Infrastructure.Data;
 
 namespace TeamServer
@@ -37,6 +38,8 @@ namespace TeamServer
 
             builder.Services.AddScoped<IHttpCRUD, HttpCRUD>();
             builder.Services.AddScoped<IAgentCRUD, AgentCRUD>();
+
+            builder.Services.AddHostedService<ListenerStartup>();
 
             var app = builder.Build();
 
