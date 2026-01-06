@@ -59,7 +59,6 @@ namespace TeamServer.Infrastructure.Controllers.ImplantControllers
                 {
                     Hostname = ping.MetadataDTO.Hostname,
                     Username = ping.MetadataDTO.Username,
-                    SystemUuid = ping.MetadataDTO.SystemUuid,
                     ProcessName = ping.MetadataDTO.ProcessName,
                     ProcessId = ping.MetadataDTO.ProcessId,
                     Architecture = ping.MetadataDTO.Architecture,

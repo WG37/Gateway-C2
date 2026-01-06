@@ -5,7 +5,6 @@ namespace ApiModels.DTOs.AgentDTOs
     {
         public string Hostname { get; set; }
         public string Username { get; set; }
-        public string SystemUuid { get; set; }
         public string ProcessName { get; set; }
         public int ProcessId { get; set; }
         public string Architecture { get; set; }
