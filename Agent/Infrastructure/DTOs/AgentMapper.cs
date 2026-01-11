@@ -12,6 +12,7 @@ namespace AgentClient.Infrastructure.DTOs
                 UniqueId = agent.UniqueId,
                 MetadataDTO = new AgentMetadataDTO
                 {
+                    Hwid = agent.Metadata.Hwid,
                     Hostname = agent.Metadata.Hostname,
                     Username = agent.Metadata.Username,
                     ProcessName = agent.Metadata.ProcessName,

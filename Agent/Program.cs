@@ -1,7 +1,7 @@
 ﻿using AgentClient.Application.Commands;
 using AgentClient.Domain.Models.Agents;
 using AgentClient.Infrastructure.CommModules;
-using AgentClient.Infrastructure.Native.Windows.Wmi.LogicalDisk;
+using AgentClient.Infrastructure.Utilities.HWID;
 using System.Diagnostics;
 using System.Reflection;
 using System.Security.Principal;
@@ -10,7 +10,6 @@ namespace AgentClient
 {
     public class Program
     {
-        // TODO: single agent instance across app
         private static Agent _agent;
         private static AgentMetadata _metadata;
         private static CommModule _commModule;
@@ -116,6 +115,7 @@ namespace AgentClient
 
             _metadata = new AgentMetadata
             {
+                Hwid = HwidGenerator.GenerateHwid(),
                 Hostname = Environment.MachineName,
                 Username = identity.Name,
                 ProcessId = process.Id,
@@ -125,9 +125,7 @@ namespace AgentClient
             };
 
             process.Dispose();
-            identity.Dispose();
-
-
+            identity.Dispose(); 
         }
     }
 }

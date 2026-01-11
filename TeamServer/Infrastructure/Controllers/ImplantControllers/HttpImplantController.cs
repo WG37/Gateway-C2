@@ -57,6 +57,7 @@ namespace TeamServer.Infrastructure.Controllers.ImplantControllers
 
                 var metadata = new AgentMetadata
                 {
+                    Hwid = ping.MetadataDTO.Hwid,
                     Hostname = ping.MetadataDTO.Hostname,
                     Username = ping.MetadataDTO.Username,
                     ProcessName = ping.MetadataDTO.ProcessName,
