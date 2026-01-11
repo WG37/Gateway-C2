@@ -2,7 +2,7 @@
 
 namespace AgentClient.Infrastructure.Native.Windows.Wmi.Processor
 {
-    public class ProcessorId
+    public static class ProcessorId
     {
         public static string GetProcessorId()
         {

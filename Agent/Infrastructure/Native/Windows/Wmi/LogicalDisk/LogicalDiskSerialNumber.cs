@@ -2,7 +2,7 @@
 
 namespace AgentClient.Infrastructure.Native.Windows.Wmi.LogicalDisk
 {
-    public class LogicalDiskSerialNumber
+    public static class LogicalDiskSerialNumber
     {
         public static string GetLogicalDiskSerialNumber()
         {

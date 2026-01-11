@@ -2,7 +2,7 @@
 
 namespace AgentClient.Infrastructure.Native.Windows.Wmi.System
 {
-    public class SystemUuid
+    public static class SystemUuid
     {
         public static string GetSystemUuid()
         {
